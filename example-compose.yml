@@ -1,0 +1,14 @@
+services:
+    ntfy-xmtp-relay:
+      image: ghcr.io/littlebitstudios/ntfy-xmtp-relay:latest
+      container_name: ntfy-xmtp-relay # change this if you want to run multiple of this container
+      volumes:
+          - ./data:/data:z # the z is there for Podman users
+      environment:
+        XMTP_ENV: production # normally this should be production; you can also set this to dev to use the xmtp devnet
+        XMTP_WALLET_KEY: 0x... # go to https://docs.xmtp.org/agents/get-started/build-an-agent#local-key-generator to get the values for XMTP_WALLET_KEY and XMTP_DB_ENCRYPTION_KEY
+        XMTP_DB_ENCRYPTION_KEY: 0x...
+        NTFY_BASE_URL: wss://ntfy.sh # ntfy.sh is the public instance; you can use your own too
+        NTFY_TOPICS: topic1,topic2,topic3 # to watch multiple topics, separate with commas
+        RECIPIENT_TYPE: addr # can be addr or inboxId, addr means ethereum address
+        RECIPIENT_ID: 0x... # the address or inbox id that will receive messages
