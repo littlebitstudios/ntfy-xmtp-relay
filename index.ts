@@ -43,7 +43,7 @@ ntfy_connection.addEventListener('message', async (ev) => {
         let sentMessage;
 
         if (message.title) {
-            sentMessage = await recipient_convo.sendMarkdown(`**${message.title}**\n${message.message}`);
+            sentMessage = await recipient_convo.sendText(`${message.title}: ${message.message}`);
         } else {
             sentMessage = await recipient_convo.sendText(message.message);
         }
