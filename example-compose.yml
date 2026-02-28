@@ -10,5 +10,5 @@ services:
         XMTP_DB_ENCRYPTION_KEY: 0x...
         NTFY_BASE_URL: wss://ntfy.sh # ntfy.sh is the public instance; you can use your own too
         NTFY_TOPICS: topic1,topic2,topic3 # to watch multiple topics, separate with commas
-        RECIPIENT_TYPE: addr # can be addr or inboxId, addr means ethereum address
-        RECIPIENT_ID: 0x... # the address or inbox id that will receive messages
+        RECIPIENT_TYPE: addr # can be addr/inboxId/bsky; addr means ethereum address, if bsky this can be a DID or handle
+        RECIPIENT_ID: 0x... # the address/inboxId/AT-DID/AT-handle that will receive messages
