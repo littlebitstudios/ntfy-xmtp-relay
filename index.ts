@@ -137,9 +137,7 @@ ntfy_connection.addEventListener("message", async (ev) => {
   }
 
   if (message.event === "message") {
-    const text = message.title
-      ? `${message.title}: ${message.message}`
-      : message.message;
+    const text = message.title ? `[${message.title}]\n${message.message}`: message.message;
 
     if (!text) {
       console.warn(`Received message event ${message.id} with no content, skipping.`);
